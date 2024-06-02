@@ -13,8 +13,12 @@ Because the project is a medical device, all the development activities will be 
 Our team chose the scrum model because we expect to have changes throughout the long running project and the scrum model is well suited for projects with changing requirements because of its iterative approach. 
 
 ## 2. Devliverables
+The technical deliverables we anticipate for the project are:
+- A web application that allows users to input their symptoms and get a list of possible diseases (frontend)
+- A backend system that processes the symptoms and identifies the possible diseases
+- Infrastructure as code that allows the repeatable deployment of the web application and the backend system
 
-TODO
+TODO: are the deliverables only technical or also non-technical such as this document?
 
 ## 3. Requirements
 In this section we describe the requirements we identify for the symptom-solver. Each Requirement will have a unique identifier, which will have the following format: `SYMPREQ-<type>-<number>`. The requirements will be divided into functional and non-functional requirements.
@@ -51,4 +55,5 @@ All components of the systems will have a version number that is incremented wit
 
 ## 6. Safety classification
 
-TODO
+We classify the software as a class B medical device. The reason is explained below:
+All of the diseases listed in the app are non-serious and can be treated at home. The app will not provide any information on serious diseases like cancer, heart attack, stroke, etc. Additionally, the app will not provide any information on mental health conditions. Although there is the case, that our App does not know the disease, in this case, it is very important that the patient seeks further medical advice. The app will advise the user to consult a healthcare provider for an accurate diagnosis and appropriate treatment. In any case, the app displays the static warning message that the user needs to consult a healthcare provider for an accurate diagnosis and appropriate treatment.

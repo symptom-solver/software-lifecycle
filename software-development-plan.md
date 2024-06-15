@@ -28,8 +28,10 @@ In this section we describe the requirements we identify for the symptom-solver.
 SYMPREQ-F-001: The system must provide an interactive web frontend where the user can input multiple symptoms that will be used to identify a possible disease the user has. 
 SYMPREQ-F-002: Within the interactive web frondend, the system must be able to display static warning messages like a one that advise the user of consulting a healthcare provider for an accurate diagnosis and appropriate treatment. 
 SYMPREQ-F-003: Within the interactive web frondend, the system must be able to display dynamic warning messages that result from the backend algorithm processing. 
+SYMPREQ-F-004: The interactive web frontend must be responsive and work on all devices. This requirement originates from the need of being able to use the app on a smartphone, tablet, or desktop computer. Additionally, this requirement also originates from risk management, as the app should display all possible diseases and the warning message on all devices and not cut off any information when the screen is too small.
+SYMPREQ-F-005: The interactive web frontend must be able to adjust the font sizes of the application according to the screen size. This requirement originates from risk management, as the app should display all information in a readable matter, that users can read the information in an ergonomic way and do not have to strain their eyes or hold the device too close to their face and maybe miss some other information.
+SYMPREQ-F-006: The interactive web frontend must not allow the user to put the app into fullscreen mode. This requirement originates from risk management, as the app should not be able to hide the operating system or other important warnings or messages from the user.
 
-TODO: further requirements and the connection to usability and risk management
 
 ### 3.2. Non-functional requirements
 
@@ -57,3 +59,7 @@ All components of the systems will have a version number that is incremented wit
 
 We classify the software as a class B medical device. The reason is explained below:
 All of the diseases listed in the app are non-serious and can be treated at home. The app will not provide any information on serious diseases like cancer, heart attack, stroke, etc. Additionally, the app will not provide any information on mental health conditions. Although there is the case, that our App does not know the disease, in this case, it is very important that the patient seeks further medical advice. The app will advise the user to consult a healthcare provider for an accurate diagnosis and appropriate treatment. In any case, the app displays the static warning message that the user needs to consult a healthcare provider for an accurate diagnosis and appropriate treatment.
+
+## 7. Detailed technical architecture
+
+TODO: Mostafa

@@ -35,10 +35,13 @@ SYMPREQ-F-006: The interactive web frontend must not allow the user to put the a
 
 ### 3.2. Non-functional requirements
 
-SYMPREQ-N-001: 
+SYMPREQ-N-001: Maintainability. The app must be designed with modularity and scalability in mind to facilitate easy maintenance and updates to be able to respond to changing conditions, either legal or medical. Small changes, like the addition of a new disease, should, in 95% of the cases, take less than 2 programmer days.
 
-TODO: further requirements and the connection to usability and risk management
+SYMPREQ-N-002: Availability. The symptom-solver app must achieve an uptime of 99.9% per month, excluding scheduled maintenance, equating to no more than 43.2 minutes of unplanned downtime per month. The app must implement disaster recovery and failover mechanisms, to ensure continuous service availability during server failures or critical issues, with a recovery time objective (RTO) of 30 minutes and a recovery point objective (RPO) of 15 minutes. 
 
+SYMPREQ-N-003: Security. The app must encrypt all user data, including personal health information, using AES-256 for data at rest and TLS 1.2 or higher for data in transit. The app must implement multi-factor authentication (MFA) for user login and conduct quarterly security audits and penetration testing, to identify and mitigate at least 95% of high and critical vulnerabilities within 30 days of detection. 
+
+SYMPREQ-N-004: Compatibility. The symptom-solver app must be fully compatible with the latest two major versions of Chrome, Firefox, Safari, and Edge. The website must provide a responsive design that ensures optimal functionality and user experience on both desktop (screen sizes ranging from 1024x768 pixels to 3840x2160 pixels) and mobile devices (screen sizes ranging from 320x568 pixels to 1440x3040 pixels), with consistent performance across various resolutions and orientations. Consistent performance means that the website must load within 3 seconds on both desktop and mobile devices for users with an internet connection speed of at least 5 Mbps, and all interactive elements should respond within 100 milliseconds to user actions.
 
 ### 3.3. Boundary conditions:
 
@@ -48,9 +51,22 @@ TODO: further requirements and the connection to usability and risk management
 
 
 ## 4. Traceability
-How do you show that each requirement was implemented and tested?
+The following traceability matrix shows the mapping of requirements to tests. 
 
-TODO: Traceability matrix, using: https://www.tablesgenerator.com/markdown_tables
+| Req / Test    | T1 | T2 | T3 | T4 |
+|---------------|----|----|----|----|
+| SYMPREQ-F-001 |    |    |    |    |
+| SYMPREQ-F-002 |    |    |    |    |
+| SYMPREQ-F-003 |    |    |    |    |
+| SYMPREQ-F-004 |    |    |    |    |
+| SYMPREQ-F-005 |    |    |    |    |
+| SYMPREQ-F-006 |    |    |    |    |
+| SYMPREQ-N-001 |    |    |    |    |
+| SYMPREQ-N-002 |    |    |    |    |
+| SYMPREQ-N-003 |    |    |    |    |
+| SYMPREQ-N-004 |    |    |    |    |
+| SYMPREQ-B-001 |    |    |    |    |
+|               |    |    |    |    |
 
 ## 5. Configuration management
 All components of the systems will have a version number that is incremented with every change. This number must follow the semantic versioning approach that provides version numbers consisting of 3 parts (fix, minor, major). Depending on the scope of the change the semantiv version will be increases respectively. All changes will be documented using a changelog that lies in the respective software repository of each component. As the software repository we use GIT. To be able to identify the source code of every version, each final version that is merged into the master branch will be tagged with the semantic version. Additionally for each master merge, a build pipeline will push the resulting artifact into a jfrog artifactory that holds all artifacts in each version of each component. The deployment in the production environment will solely happen with artifacts from the artifactory. Within the build pipeline we run the build tool gradle in a specific version that is fixed within the software repository (gradle.properties). The usage of the gradle wrapper ensures that the correct version will be downloaded for each build. For all external dependencies the version must also be specified in the gradle.properties file. This way each build is deterministic and can be repeated. 

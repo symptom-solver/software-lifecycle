@@ -80,4 +80,71 @@ All of the diseases listed in the app are non-serious and can be treated at home
 
 ## 7. Detailed technical architecture
 
-TODO: How can we connect this part to the rest of the software lifecycle? 
+This section outlines the technical architecture of the Symptomsolver project, ensuring compliance with IEC 62304 and integrating key elements such as system components, data flow, integration, and security mechanisms.
+
+### System Components and Architecture
+
+**Frontend Web Application:**
+- **Framework:** Developed using React.js.
+- **Functionality:** Enables symptom input and displays diagnoses and warnings.
+- **Design:** Responsive and accessible across devices.
+
+**Backend System:**
+- **Framework:** Implemented with Node.js and Express.
+- **Functionality:** Processes symptoms to identify potential diseases.
+- **Data Storage:** Utilizes MongoDB.
+
+**Infrastructure as Code (IaC):**
+- **Tools:** Managed with Terraform on AWS for consistent deployments.
+
+### Data Flow and Integration
+
+**Data Flow:**
+- **User Input:** Via the frontend.
+- **Data Processing:** Backend processes input through RESTful APIs.
+- **Diagnosis:** Results displayed on the frontend.
+
+**Integration:**
+- **APIs:** RESTful communication between frontend and backend.
+- **CI/CD:** Automated with Jenkins for seamless updates.
+
+### Security Mechanisms
+
+**Data Encryption:**
+- **At Rest:** AES-256 encryption.
+- **In Transit:** TLS 1.2 or higher.
+
+**Authentication:**
+- **MFA:** Multi-Factor Authentication.
+- **Access Control:** Role-based access.
+
+**Security Audits:**
+- **Regular Audits:** Quarterly security audits and penetration tests.
+
+### Documentation and Compliance
+
+**Traceability Matrix:**
+- **Requirement Mapping:** Links requirements to tests for compliance verification.
+
+**Configuration Management:**
+- **Version Control:** Git with semantic versioning.
+- **Artifact Repository:** JFrog Artifactory for version tracking.
+
+**Safety and Risk Management:**
+- **Risk Assessment:** Regular assessments with mitigation strategies.
+- **Compliance:** Adheres to IEC 62304 standards.
+
+### Connecting to the Software Lifecycle
+
+The detailed technical architecture is integral to the entire software lifecycle, ensuring each phase is interconnected and compliant with IEC 62304:
+
+- **Planning:** The architecture informs the initial planning phase, ensuring all components and interactions are considered from the start.
+- **Requirements Analysis:** Architectural components are derived from detailed requirements, ensuring all functional and non-functional needs are met.
+- **Design Phases:** The high-level and detailed designs are based on the architecture, ensuring consistent implementation across the project.
+- **Implementation and Verification:** Each component is implemented according to the architectural specifications and verified to ensure compliance and functionality.
+- **Integration and Testing:** The architecture guides the integration of components, with continuous testing to verify interactions and performance.
+- **System Testing:** Overall system tests ensure that the integrated components function as intended within the architectural framework.
+- **Software Release:** The final release is based on the fully integrated and tested architecture, ensuring a robust and reliable product.
+- **Maintenance:** The architecture provides a foundation for ongoing maintenance and updates, ensuring any changes are systematically integrated and tested.
+
+By embedding the detailed technical architecture within the software lifecycle, Symptomsolver achieves a cohesive and compliant development process, ensuring high standards of quality and performance throughout the project.

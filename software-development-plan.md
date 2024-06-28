@@ -12,13 +12,11 @@ Because the project is a medical device, all the development activities will be 
 
 Our team chose the scrum model because we expect to have changes throughout the long running project and the scrum model is well suited for projects with changing requirements because of its iterative approach. 
 
-## 2. Devliverables
+## 2. Deliverables
 The technical deliverables we anticipate for the project are:
 - A web application that allows users to input their symptoms and get a list of possible diseases (frontend)
 - A backend system that processes the symptoms and identifies the possible diseases
 - Infrastructure as code that allows the repeatable deployment of the web application and the backend system
-
-TODO: are the deliverables only technical or also non-technical such as this document?
 
 ## 3. Requirements
 In this section we describe the requirements we identify for the symptom-solver. Each Requirement will have a unique identifier, which will have the following format: `SYMPREQ-<type>-<number>`. The requirements will be divided into functional and non-functional requirements.
@@ -42,6 +40,8 @@ SYMPREQ-N-002: Availability. The symptom-solver app must achieve an uptime of 99
 SYMPREQ-N-003: Security. The app must encrypt all user data, including personal health information, using AES-256 for data at rest and TLS 1.2 or higher for data in transit. The app must implement multi-factor authentication (MFA) for user login and conduct quarterly security audits and penetration testing, to identify and mitigate at least 95% of high and critical vulnerabilities within 30 days of detection. 
 
 SYMPREQ-N-004: Compatibility. The symptom-solver app must be fully compatible with the latest two major versions of Chrome, Firefox, Safari, and Edge. The website must provide a responsive design that ensures optimal functionality and user experience on both desktop (screen sizes ranging from 1024x768 pixels to 3840x2160 pixels) and mobile devices (screen sizes ranging from 320x568 pixels to 1440x3040 pixels), with consistent performance across various resolutions and orientations. Consistent performance means that the website must load within 3 seconds on both desktop and mobile devices for users with an internet connection speed of at least 5 Mbps, and all interactive elements should respond within 100 milliseconds to user actions.
+
+TODO: font size and high contrast (requirement accessibility)
 
 ### 3.3. Boundary conditions:
 
@@ -68,6 +68,8 @@ The following traceability matrix shows the mapping of requirements to tests.
 | SYMPREQ-B-001 |    |    |    |    |
 |               |    |    |    |    |
 
+TODO: @timo add test cases
+
 ## 5. Configuration management
 All components of the systems will have a version number that is incremented with every change. This number must follow the semantic versioning approach that provides version numbers consisting of 3 parts (fix, minor, major). Depending on the scope of the change the semantiv version will be increases respectively. All changes will be documented using a changelog that lies in the respective software repository of each component. As the software repository we use GIT. To be able to identify the source code of every version, each final version that is merged into the master branch will be tagged with the semantic version. Additionally for each master merge, a build pipeline will push the resulting artifact into a jfrog artifactory that holds all artifacts in each version of each component. The deployment in the production environment will solely happen with artifacts from the artifactory. Within the build pipeline we run the build tool gradle in a specific version that is fixed within the software repository (gradle.properties). The usage of the gradle wrapper ensures that the correct version will be downloaded for each build. For all external dependencies the version must also be specified in the gradle.properties file. This way each build is deterministic and can be repeated. 
 
@@ -78,4 +80,4 @@ All of the diseases listed in the app are non-serious and can be treated at home
 
 ## 7. Detailed technical architecture
 
-TODO: Mostafa
+TODO: How can we connect this part to the rest of the software lifecycle? 

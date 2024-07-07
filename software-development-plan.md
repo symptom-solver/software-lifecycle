@@ -24,10 +24,15 @@ In this section we describe the requirements we identify for the symptom-solver.
 ### 3.1. Functional requirements
 
 SYMPREQ-F-001: The system must provide an interactive web frontend where the user can input multiple symptoms that will be used to identify a possible disease the user has. 
+
 SYMPREQ-F-002: Within the interactive web frondend, the system must be able to display static warning messages like a one that advise the user of consulting a healthcare provider for an accurate diagnosis and appropriate treatment. 
+
 SYMPREQ-F-003: Within the interactive web frondend, the system must be able to display dynamic warning messages that result from the backend algorithm processing. 
+
 SYMPREQ-F-004: The interactive web frontend must be responsive and work on all devices. This requirement originates from the need of being able to use the app on a smartphone, tablet, or desktop computer. Additionally, this requirement also originates from risk management, as the app should display all possible diseases and the warning message on all devices and not cut off any information when the screen is too small.
+
 SYMPREQ-F-005: The interactive web frontend must be able to adjust the font sizes of the application according to the screen size. The respective sizes will be chosen acording to DIN 1450. This requirement originates from risk management, as the app should display all information in a readable matter, that users can read the information in an ergonomic way and do not have to strain their eyes or hold the device too close to their face and maybe miss some other information.
+
 SYMPREQ-F-006: The interactive web frontend must not allow the user to put the app into fullscreen mode. This requirement originates from risk management, as the app should not be able to hide the operating system or other important warnings or messages from the user.
 
 
@@ -53,22 +58,28 @@ TODO: further requirements and the connection to usability and risk management
 ## 4. Traceability
 The following traceability matrix shows the mapping of requirements to tests. 
 
-| Req / Test    | T1 | T2 | T3 | T4 |
-|---------------|----|----|----|----|
-| SYMPREQ-F-001 |    |    |    |    |
-| SYMPREQ-F-002 |    |    |    |    |
-| SYMPREQ-F-003 |    |    |    |    |
-| SYMPREQ-F-004 |    |    |    |    |
-| SYMPREQ-F-005 |    |    |    |    |
-| SYMPREQ-F-006 |    |    |    |    |
-| SYMPREQ-N-001 |    |    |    |    |
-| SYMPREQ-N-002 |    |    |    |    |
-| SYMPREQ-N-003 |    |    |    |    |
-| SYMPREQ-N-004 |    |    |    |    |
-| SYMPREQ-B-001 |    |    |    |    |
-|               |    |    |    |    |
+| Req / Test    | TC01 | TC02 | TC03 | TC04 | TC05 | TC10 | TC20 |
+| ------------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| SYMPREQ-F-001 | X    |      |      |      |      |      |      |
+| SYMPREQ-F-002 |      | X    |      |      |      |      |      |
+| SYMPREQ-F-003 |      |      | X    |      |      |      |      |
+| SYMPREQ-F-004 | X    | X    | X    | X    |      |      |      |
+| SYMPREQ-F-005 |      |      |      | X    |      |      |      |
+| SYMPREQ-F-006 |      |      |      |      | X    |      |      |
+| SYMPREQ-N-001 |      |      |      |      |      | X    |      |
+| SYMPREQ-N-002 |      |      |      |      |      |      |      |
+| SYMPREQ-N-003 |      |      |      |      |      |      |      |
+| SYMPREQ-N-004 |      |      |      | X    |      |      |      |
+| SYMPREQ-B-001 |      |      |      |      |      |      | X    |
 
-TODO: @timo add test cases
+The following test cases are defined:
+- TC01: UI test of the interactive web frontend including the input of symptoms and the display of a possible disease.
+- TC02: UI test that checks if the static warning message is displayed.
+- TC03: UI test that inputs predefined symptoms that should result in a dynamic warning message.
+- TC04: Resposive design UI test that checks predefined screen sizes and if all elements are displayed correctly including symptoms selector, result, and warning messages as well as increasing or decreasing font-sizes. Test screensizes are taken from the compatibility requirement SYMPREQ-N-004.
+- TC05: UI test that checks if the app can be put into fullscreen mode. Failure is expected.
+- TC10: Architecture test of the backend component using ArchUnit. The test checks whether the backend components are developed using modular and scalable design principles. 
+- TC20: Backend test that checks if the data processing is done in the backend system and not in the frontend. Therefore the test calls the backend api with a predefined set of symptoms and checks that the result is processed correctly. Since the frontend is not involved in this test, this test checks the boundary condition SYMPREQ-B-001.
 
 ## 5. Configuration management
 All components of the systems will have a version number that is incremented with every change. This number must follow the semantic versioning approach that provides version numbers consisting of 3 parts (fix, minor, major). Depending on the scope of the change the semantiv version will be increases respectively. All changes will be documented using a changelog that lies in the respective software repository of each component. As the software repository we use GIT. To be able to identify the source code of every version, each final version that is merged into the master branch will be tagged with the semantic version. Additionally for each master merge, a build pipeline will push the resulting artifact into a jfrog artifactory that holds all artifacts in each version of each component. The deployment in the production environment will solely happen with artifacts from the artifactory. Within the build pipeline we run the build tool gradle in a specific version that is fixed within the software repository (gradle.properties). The usage of the gradle wrapper ensures that the correct version will be downloaded for each build. For all external dependencies the version must also be specified in the gradle.properties file. This way each build is deterministic and can be repeated. 

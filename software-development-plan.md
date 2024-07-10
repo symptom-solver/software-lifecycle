@@ -31,7 +31,7 @@ SYMPREQ-F-003: Within the interactive web frondend, the system must be able to d
 
 SYMPREQ-F-004: The interactive web frontend must be responsive and work on all devices. This requirement originates from the need of being able to use the app on a smartphone, tablet, or desktop computer. Additionally, this requirement also originates from risk management, as the app should display all possible diseases and the warning message on all devices and not cut off any information when the screen is too small.
 
-SYMPREQ-F-005: The interactive web frontend must be able to adjust the font sizes of the application according to the screen size. The respective sizes will be chosen acording to DIN 1450. This requirement originates from risk management, as the app should display all information in a readable matter, that users can read the information in an ergonomic way and do not have to strain their eyes or hold the device too close to their face and maybe miss some other information.
+SYMPREQ-F-005: The interactive web frontend must be able to adjust the font sizes of the application according to the screen size. The respective sizes will be chosen acording to DIN 1450 (readability of fonts). This requirement originates from risk management, as the app should display all information in a readable matter, that users can read the information in an ergonomic way and do not have to strain their eyes or hold the device too close to their face and maybe miss some other information.
 
 SYMPREQ-F-006: The interactive web frontend must not allow the user to put the app into fullscreen mode. This requirement originates from risk management, as the app should not be able to hide the operating system or other important warnings or messages from the user.
 
@@ -46,14 +46,9 @@ SYMPREQ-N-003: Security. The app must encrypt all user data, including personal 
 
 SYMPREQ-N-004: Compatibility. The symptom-solver app must be fully compatible with the latest two major versions of Chrome, Firefox, Safari, and Edge. The website must provide a responsive design that ensures optimal functionality and user experience on both desktop (screen sizes ranging from 1024x768 pixels to 3840x2160 pixels) and mobile devices (screen sizes ranging from 320x568 pixels to 1440x3040 pixels), with consistent performance across various resolutions and orientations. Consistent performance means that the website must load within 3 seconds on both desktop and mobile devices for users with an internet connection speed of at least 5 Mbps, and all interactive elements should respond within 100 milliseconds to user actions.
 
-TODO: font size and high contrast (requirement accessibility)
-
 ### 3.3. Boundary conditions:
 
 SYMPREQ-B-001: The data processing must be done in a backend system to ensure, that the algorithms used are not visible to the end users.
-
-TODO: further requirements and the connection to usability and risk management
-
 
 ## 4. Traceability
 The following traceability matrix shows the mapping of requirements to tests. 
@@ -71,6 +66,8 @@ The following traceability matrix shows the mapping of requirements to tests.
 | SYMPREQ-N-003 |      |      |      |      |      |      |      |
 | SYMPREQ-N-004 |      |      |      | X    |      |      |      |
 | SYMPREQ-B-001 |      |      |      |      |      |      | X    |
+
+Requirements that are not mapped to a test must be verified manually. This process has to be documented according to the system test specification in the IEC 62304 standard. All tests that can be automated, should be automated.
 
 The following test cases are defined:
 - TC01: UI test of the interactive web frontend including the input of symptoms and the display of a possible disease.

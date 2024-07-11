@@ -104,6 +104,10 @@ This section outlines the technical architecture of the Symptomsolver project, e
 - **Functionality:** Processes symptoms to identify potential diseases.
 - **Data Storage:** Utilizes MongoDB.
 
+  **Backend System - Use of AI:**
+- Decision Tree in Python to compute most probable disease based on set of symptoms.
+- Training based on publicly available probabilities for diseases => creation of a synthetic dataset. 
+
 **Infrastructure as Code (IaC):**
 - **Tools:** Managed with Terraform on AWS for consistent deployments.
 

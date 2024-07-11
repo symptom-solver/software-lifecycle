@@ -35,6 +35,7 @@ SYMPREQ-F-005: The interactive web frontend must be able to adjust the font size
 
 SYMPREQ-F-006: The interactive web frontend must not allow the user to put the app into fullscreen mode. This requirement originates from risk management, as the app should not be able to hide the operating system or other important warnings or messages from the user.
 
+SYMPREQ-F-007: The symptoms displayed in the interactive web frontend must contain a non-medical language, to be understandable for everyone. This requirement originates from usability engineering, as the usability tests showed that some users do not understand the medical language. There is also a connection to risk management, since understandable symtoms mitigate the risk of misunderstanding.
 
 ### 3.2. Non-functional requirements
 
@@ -61,6 +62,7 @@ The following traceability matrix shows the mapping of requirements to tests.
 | SYMPREQ-F-004 | X    | X    | X    | X    |      |      |      |
 | SYMPREQ-F-005 |      |      |      | X    |      |      |      |
 | SYMPREQ-F-006 |      |      |      |      | X    |      |      |
+| SYMPREQ-F-007 |      |      |      |      |      |      |      |
 | SYMPREQ-N-001 |      |      |      |      |      | X    |      |
 | SYMPREQ-N-002 |      |      |      |      |      |      |      |
 | SYMPREQ-N-003 |      |      |      |      |      |      |      |
